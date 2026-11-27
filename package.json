@@ -1,4 +1,10 @@
 {
+  "name": "princess",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm install --prefix princesspaclibar --no-audit --no-fund && npm run build --prefix princesspaclibar"
+  },
   "dependencies": {
     "astro": "^7.4.11"
   }
