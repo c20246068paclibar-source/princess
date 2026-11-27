@@ -1,0 +1,180 @@
+
+---
+const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="header">
+    <nav class="navbar">
+        <a href="/" class="logo">MyWebsite</a>
+
+        <ul class="nav-links">
+            {navLinks.map((link) => (
+                <li>
+                    <a href={link.href}>{link.name}</a>
+                </li>
+            ))}
+        </ul>
+
+        <div class="nav-actions">
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                aria-pressed="false"
+            >
+                🌙
+            </button>
+
+            <a href="/contact" class="contact-btn">
+                Contact Us
+            </a>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const themeToggle =
+        document.querySelector<HTMLButtonElement>("#themeToggle");
+
+    if (themeToggle) {
+        const updateThemeButton = () => {
+            const isDark =
+                document.documentElement.dataset.theme === "dark";
+
+            themeToggle.textContent = isDark ? "☀️" : "🌙";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+            );
+
+            themeToggle.setAttribute(
+                "aria-pressed",
+                String(isDark)
+            );
+        };
+
+        updateThemeButton();
+
+        themeToggle.addEventListener("click", () => {
+            const isDark =
+                document.documentElement.dataset.theme !== "dark";
+
+            const newTheme = isDark ? "dark" : "light";
+
+            document.documentElement.dataset.theme = newTheme;
+
+            try {
+                localStorage.setItem("theme", newTheme);
+            } catch {
+                // Theme still works if browser storage is unavailable.
+            }
+
+            updateThemeButton();
+        });
+    }
+</script>
+
+<style>
+    .header {
+        width: 100%;
+        background: var(--header-bg);
+        box-shadow: 0 2px 8px var(--shadow-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: background 0.3s;
+    }
+
+    .navbar {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+        color: #3b82f6;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #3b82f6;
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .theme-toggle {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        background: var(--card-bg);
+        color: var(--text-color);
+        cursor: pointer;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+        transform: rotate(15deg);
+    }
+
+    .contact-btn {
+        background: #2563eb;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .contact-btn:hover {
+        background: #1d4ed8;
+    }
+
+    @media (max-width: 650px) {
+        .navbar {
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .nav-links {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .nav-actions {
+            justify-content: center;
+        }
+    }
+</style>

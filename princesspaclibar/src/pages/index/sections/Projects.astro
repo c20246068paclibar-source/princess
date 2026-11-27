@@ -1,0 +1,49 @@
+---
+const projects = [
+  { name: "Personal Portfolio", desc: "This site, built with Astro." },
+  { name: "Payroll System", desc: "Handles employee pay and records." },
+  { name: "Company Website", desc: "A clean public site for a business." },
+  { name: "Startup Website", desc: "A landing site for an early-stage product." },
+  { name: "Compliance Monitoring System", desc: "Tracks and flags compliance requirements." },
+];
+---
+
+<section id="projects" class="block">
+  <h2>My Projects</h2>
+  <ul class="project-grid">
+    {projects.map((p) => (
+      <li class="project-card">
+        <span class="name">{p.name}</span>
+        <span class="desc">{p.desc}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .block { padding: 4rem 0; border-top: 1px solid var(--line); }
+  .project-grid {
+    list-style: none;
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .project-card {
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, var(--bg)), var(--bg));
+    border-top: 3px solid var(--accent);
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+  @media (max-width: 560px) {
+    .project-grid { grid-template-columns: 1fr; }
+  }
+  .name { display: block; font-weight: 600; }
+  .desc { display: block; color: var(--muted); font-size: 0.95rem; }
+</style>

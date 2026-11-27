@@ -1,0 +1,160 @@
+
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Website Information -->
+    <div class="footer-brand">
+      <h2>MyWebsite</h2>
+      <p>
+        Creating simple, beautiful, and meaningful digital experiences.
+        Thank you for visiting our website!
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li>Email: hello@example.com</li>
+        <li>Phone: +63 912 345 6789</li>
+        <li>Location: Philippines</li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>
+      &copy; {currentYear} MyWebsite. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    background: var(--header-bg);
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+    padding: 50px 8% 20px;
+    margin-top: 60px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+    gap: 35px;
+  }
+
+  .footer-brand h2 {
+    color: var(--primary-color);
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .footer-brand p {
+    color: var(--secondary-text);
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 320px;
+  }
+
+  .footer-section h3 {
+    font-size: 17px;
+    margin-bottom: 18px;
+    color: var(--text-color);
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: 12px;
+    color: var(--secondary-text);
+    font-size: 14px;
+  }
+
+  .footer-section a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--primary-color);
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: var(--secondary-text);
+    font-size: 13px;
+  }
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 576px) {
+    .footer {
+      padding: 40px 6% 20px;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-brand p {
+      max-width: 100%;
+    }
+  }
+</style>

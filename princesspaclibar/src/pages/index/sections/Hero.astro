@@ -1,0 +1,147 @@
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="tagline">
+      I build <strong>websites</strong> and <strong>business systems</strong>, from
+      <mark>portfolios</mark> to <mark>payroll</mark> and <mark>compliance tools</mark>.
+    </p>
+    <div class="actions">
+      <a href="#projects" class="cta">View projects <span aria-hidden="true">↓</span></a>
+      <a href="#contact" class="secondary">Contact <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <div class="portrait" aria-label="Profile illustration">
+    <div class="portrait-ring">
+      <img src="/hero-profile.png" alt="People collaborating on a software project" />
+    </div>
+    <span class="status"><i></i> Available for work</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 150px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem 0 7rem;
+    position: relative;
+    text-align: left;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: -8%;
+    top: 50%;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-content { max-width: 560px; }
+  .tagline {
+    max-width: 48ch;
+    margin: 0 0 2rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--accent) 5%, var(--bg));
+  }
+  .tagline strong {
+    color: var(--text);
+  }
+  .tagline mark {
+    color: var(--accent);
+    background: transparent;
+    font-weight: 700;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .actions a {
+    min-width: 145px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+  }
+  .cta {
+    background: var(--accent);
+    color: #ffffff;
+  }
+  .cta:hover { color: #ffffff; transform: translateY(-2px); }
+  .secondary {
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+  }
+  .secondary:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  .portrait {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+  }
+  .portrait-ring {
+    width: min(290px, 100%);
+    aspect-ratio: 1;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 18%, var(--bg)), var(--bg));
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  .portrait-ring img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .status i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 12px #22c55e;
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      min-height: calc(100vh - 120px);
+      grid-template-columns: 1fr;
+      padding: 3rem 0 5rem;
+      text-align: center;
+    }
+    .hero::before { width: 300px; height: 300px; }
+    .hero-content { order: 2; }
+    .portrait { order: 1; }
+    .tagline { margin-inline: auto; }
+    .actions { justify-content: center; }
+    .actions { width: 100%; }
+    .actions a { min-width: 0; flex: 1; }
+  }
+</style>
